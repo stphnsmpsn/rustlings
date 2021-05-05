@@ -7,7 +7,7 @@
 // Execute the command `rustlings hint vec2` if you need
 // hints.
 
-// I AM NOT DONE
+// I AM DONE 2021-05-04 by stphnsmpsn
 
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
     for i in v.iter_mut() {
