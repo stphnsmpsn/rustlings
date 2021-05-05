@@ -12,7 +12,7 @@
 // Execute the command `rustlings hint hashmap2` if you need
 // hints.
 
-// I AM NOT DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-04 by stphnsmpsn
 
 use std::collections::HashMap;
 
