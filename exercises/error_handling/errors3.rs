@@ -4,7 +4,7 @@
 // Why not? What should we do to fix it?
 // Execute `rustlings hint errors3` for hints!
 
-// I AM NOT DONE
+// I AM DONE 2021-05-04 by stphnsmpsn
 
 use std::num::ParseIntError;
 
@@ -12,7 +12,8 @@ fn main() {
     let mut tokens = 100;
     let pretend_user_input = "8";
 
-    let cost = total_cost(pretend_user_input)?;
+    // unwrap only good for quick n dirty prototyping
+    let cost = total_cost(pretend_user_input).unwrap();
 
     if cost > tokens {
         println!("You can't afford that many!");
