@@ -8,7 +8,7 @@
 // which appends "Bar" to any object
 // implementing this trait.
 
-// I AM DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 trait AppendBar {
     fn append_bar(self) -> Self;

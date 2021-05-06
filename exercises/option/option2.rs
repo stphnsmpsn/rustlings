@@ -1,7 +1,7 @@
 // option2.rs
 // Make me compile! Execute `rustlings hint option2` for hints
 
-// I AM DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 fn main() {
     let optional_word = Some(String::from("rustlings"));

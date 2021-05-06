@@ -16,7 +16,7 @@
 // There are at least two ways to implement this that are both correct-- but
 // one is a lot shorter! Execute `rustlings hint errors2` for hints to both ways.
 
-// I AM DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 use std::num::ParseIntError;
 

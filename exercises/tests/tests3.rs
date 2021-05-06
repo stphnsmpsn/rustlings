@@ -4,7 +4,7 @@
 // we expect to get when we call `is_even(5)`.
 // Execute `rustlings hint tests3` for hints :)
 
-// I AM DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 pub fn is_even(num: i32) -> bool {
     num % 2 == 0

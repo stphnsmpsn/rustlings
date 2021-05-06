@@ -6,7 +6,7 @@
 // this function to have.
 // Execute `rustlings hint errors1` for hints!
 
-// I AM DONE 2021-05-04 by stphnsmpsn
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 pub fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.len() > 0 {
