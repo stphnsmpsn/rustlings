@@ -5,11 +5,11 @@
 // The goal is to make sure that the division does not fail to compile
 // and returns the proper type.
 
-// I AM NOT DONE
+// I AM DONE 2021-05-06 by stphnsmpsn
 
 fn average(values: &[f64]) -> f64 {
-    let total = values.iter().fold(0.0, |a, b| a + b);
-    total / values.len()
+    let total = values.iter().fold(0.0, |sum, el| sum + el);
+    total / values.len() as f64
 }
 
 fn main() {

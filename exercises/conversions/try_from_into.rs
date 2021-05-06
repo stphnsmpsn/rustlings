@@ -12,7 +12,11 @@ struct Color {
     blue: u8,
 }
 
-// I AM NOT DONE
+fn valid_rgb(val: i16) -> bool {
+    return if val > 0 && val < 256 { true } else { false };
+}
+
+// I AM DONE 2021-05-06 by stphnsmpsn
 
 // Your task is to complete this implementation
 // and return an Ok result of inner type Color.
@@ -25,20 +29,56 @@ struct Color {
 
 // Tuple implementation
 impl TryFrom<(i16, i16, i16)> for Color {
-    type Error = Box<dyn error::Error>;
-    fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {}
+    //todo: how to return box<dyn error:Error>
+    //type Error = Box<dyn error::Error>;
+    type Error = String;
+    fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {
+        let (red, green, blue) = tuple;
+        if valid_rgb(red) && valid_rgb(green) && valid_rgb(blue) {
+            return Ok(Color {
+                red: red as u8,
+                green: green as u8,
+                blue: blue as u8,
+            });
+        }
+        Err(String::from("fail"))
+    }
 }
 
 // Array implementation
 impl TryFrom<[i16; 3]> for Color {
-    type Error = Box<dyn error::Error>;
-    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {}
+    //type Error = Box<dyn error::Error>;
+    type Error = String;
+    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
+        let (red, green, blue) = (arr[0], arr[1], arr[2]);
+        if valid_rgb(red) && valid_rgb(green) && valid_rgb(blue) {
+            return Ok(Color {
+                red: red as u8,
+                green: green as u8,
+                blue: blue as u8,
+            });
+        }
+        Err(String::from("fail"))
+    }
 }
 
 // Slice implementation
 impl TryFrom<&[i16]> for Color {
-    type Error = Box<dyn error::Error>;
-    fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {}
+    //type Error = Box<dyn error::Error>;
+    type Error = String;
+    fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
+        if slice.len() == 3 {
+            let (red, green, blue) = (slice[0], slice[1], slice[2]);
+            if valid_rgb(red) && valid_rgb(green) && valid_rgb(blue) {
+                return Ok(Color {
+                    red: red as u8,
+                    green: green as u8,
+                    blue: blue as u8,
+                });
+            }
+        }
+        Err(String::from("fail"))
+    }
 }
 
 fn main() {
