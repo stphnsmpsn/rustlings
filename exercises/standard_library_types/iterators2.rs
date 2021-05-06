@@ -3,7 +3,8 @@
 // can offer. Follow the steps to complete the exercise.
 // As always, there are hints if you execute `rustlings hint iterators2`!
 
-// I AM NOT DONE
+// todo: this one took longer than it should have... make sure to review
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 // Step 1.
 // Complete the `capitalize_first` function.
@@ -12,7 +13,12 @@ pub fn capitalize_first(input: &str) -> String {
     let mut c = input.chars();
     match c.next() {
         None => String::new(),
-        Some(first) => ???,
+        // to_uppercase() returns an iterator
+        // chain() links two iterators
+        // collect transforms iterator into collection
+        // collect() can also create instances of types that are not typical collections. For example, a String can be built from chars
+        Some(first) => first.to_uppercase().chain(c).collect()
+        //Some(first) => format!("{}{}", first.to_uppercase(), c.as_str().to_string())  // todo: is this worse?
     }
 }
 
@@ -21,7 +27,9 @@ pub fn capitalize_first(input: &str) -> String {
 // Return a vector of strings.
 // ["hello", "world"] -> ["Hello", "World"]
 pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
-    vec![]
+    words.iter()
+        .map(|&x| capitalize_first(x))
+        .collect()
 }
 
 // Step 3.
@@ -29,7 +37,9 @@ pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 // Return a single string.
 // ["hello", " ", "world"] -> "Hello World"
 pub fn capitalize_words_string(words: &[&str]) -> String {
-    String::new()
+    words.iter()
+        .map(|&x| capitalize_first(x))
+        .collect()
 }
 
 #[cfg(test)]

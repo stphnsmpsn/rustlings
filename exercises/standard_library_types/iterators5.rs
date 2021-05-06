@@ -12,7 +12,7 @@
 //
 // Make the code compile and the tests pass.
 
-// I AM NOT DONE
+// I AM DONE 2021-05-05 by stphnsmpsn
 
 use std::collections::HashMap;
 
@@ -36,6 +36,13 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
     // map is a hashmap with String keys and Progress values.
     // map = { "variables1": Complete, "from_str": None, ... }
+    map.iter().fold(0, |sum, (_k, v) | (
+        if value == *v {
+            sum + 1
+        } else {
+            sum
+        }
+    ))
 }
 
 fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
@@ -54,6 +61,19 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
     // collection is a slice of hashmaps.
     // collection = [{ "variables1": Complete, "from_str": None, ... },
     //     { "variables2": Complete, ... }, ... ]
+    collection.iter().fold(0, |sum, map: &HashMap<String, Progress> | (
+        // todo: I would not implement this this way if the instructions didn't say that:
+        //  Only the two iterator methods (count_iterator and count_collection_iterator)
+        //  need to be modified.
+        //  I would have either derived the Copy, Clone traits on Progress to copy progress into
+        //  count_iterator(), or I would have modified the function signature to borrow progress.
+        //  The latter would have involved modifying tests though which would break the rules.
+        sum + count_iterator(&map, match value {
+            Progress::Complete => Progress::Complete,
+            Progress::Some => Progress::Some,
+            Progress::None => Progress::None
+        })
+    ))
 }
 
 #[cfg(test)]
